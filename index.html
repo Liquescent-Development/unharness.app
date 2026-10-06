@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unharness</title>
+<meta name="description" content="One terminal UI for every coding agent you already have an account for. Run Claude Code, Codex, pi, Antigravity and any ACP agent behind one interface, and switch mid-conversation.">
+<link rel="canonical" href="https://unharness.app/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#11111b" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://unharness.app/">
+<meta property="og:title" content="unharness">
+<meta property="og:description" content="One terminal UI for every coding agent you already have an account for.">
+<meta property="og:image" content="https://unharness.app/assets/demo.gif">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <a class="brand" href="/" aria-label="unharness home">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.svg">
+      <img src="assets/logo-light.svg" alt="unharness" width="156" height="25">
+    </picture>
+  </a>
+  <nav>
+    <a href="#install">Install</a>
+    <a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/usage.md">Docs</a>
+    <a href="https://github.com/Liquescent-Development/unharness" class="gh">GitHub</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <h1>One terminal UI for every coding agent you already have an account for.</h1>
+  <p class="lede">
+    unharness runs Claude Code, Codex, pi, Antigravity and any
+    <a href="https://agentclientprotocol.com">Agent Client Protocol</a> agent
+    behind one interface. Same transcript, keys, permission prompts and
+    resume, whichever agent is running, and you can switch agents
+    mid-conversation without losing context.
+  </p>
+
+  <div class="install" id="install">
+    <div class="tabs" role="tablist" aria-label="Install method">
+      <button role="tab" aria-selected="true" aria-controls="i-sh" id="t-sh">Shell</button>
+      <button role="tab" aria-selected="false" aria-controls="i-brew" id="t-brew" tabindex="-1">Homebrew</button>
+      <button role="tab" aria-selected="false" aria-controls="i-cargo" id="t-cargo" tabindex="-1">From source</button>
+    </div>
+    <div class="cmd" role="tabpanel" id="i-sh" aria-labelledby="t-sh">
+      <code><span class="p">$</span> curl -fsSL https://github.com/Liquescent-Development/unharness/releases/latest/download/unharness-installer.sh | sh</code>
+      <button class="copy" type="button" aria-label="Copy command">Copy</button>
+    </div>
+    <div class="cmd" role="tabpanel" id="i-brew" aria-labelledby="t-brew" hidden>
+      <code><span class="p">$</span> brew install Liquescent-Development/tap/unharness</code>
+      <button class="copy" type="button" aria-label="Copy command">Copy</button>
+    </div>
+    <div class="cmd" role="tabpanel" id="i-cargo" aria-labelledby="t-cargo" hidden>
+      <code><span class="p">$</span> cargo install --locked --git https://github.com/Liquescent-Development/unharness</code>
+      <button class="copy" type="button" aria-label="Copy command">Copy</button>
+    </div>
+    <p class="note">Linux and macOS. Building from source needs Rust 1.89+.</p>
+  </div>
+</section>
+
+<section class="demo" aria-label="Demo">
+  <div class="window">
+    <div class="bar"><span></span><span></span><span></span></div>
+    <img src="assets/demo.gif" width="1280" height="760" loading="eager"
+         alt="Claude Code fixes a bug in fib.py behind a permission prompt, then /harness codex hands the conversation to Codex, which explains the fix from the shared transcript.">
+  </div>
+  <p class="caption">Claude Code fixes a bug behind a permission prompt, then Codex picks up the same conversation.</p>
+</section>
+
+<section class="features">
+  <h2>What you get</h2>
+  <div class="grid">
+    <article>
+      <h3>One interface</h3>
+      <p>Every agent gets the same transcript, keybindings, model and effort pickers, and session resume.</p>
+    </article>
+    <article>
+      <h3>Switch mid-conversation</h3>
+      <p><code>/harness codex</code> hands the conversation to another agent. Switching back resumes the first agent's own session.</p>
+    </article>
+    <article>
+      <h3>One sandbox for every agent</h3>
+      <p>Landlock on Linux and <code>sandbox-exec</code> on macOS confine the whole agent process: it writes only to your project and cannot read your cloud and signing credentials.</p>
+    </article>
+    <article>
+      <h3><code>ask</code> means ask</h3>
+      <p>Nothing writes, runs or reaches out without your answer, on every harness that offers the policy. "Always allow" rules belong to unharness and apply to every agent.</p>
+    </article>
+    <article>
+      <h3>Rewind with your files</h3>
+      <p>Go back to any earlier prompt and restore the working tree to how it was then, on any harness. Checkpoints never touch your <code>.git</code>.</p>
+    </article>
+    <article>
+      <h3>Configure once</h3>
+      <p>MCP servers, skills and <code>AGENTS.md</code> are set up once and handed to each agent in the form it understands.</p>
+    </article>
+  </div>
+</section>
+
+<section class="agents">
+  <h2>Bring the agents you already use</h2>
+  <p>unharness drives the vendor CLIs you have installed and signed in to, and normalises their streaming protocols into one event model.</p>
+  <ul class="pills">
+    <li><a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a></li>
+    <li><a href="https://github.com/openai/codex">Codex</a></li>
+    <li><a href="https://pi.dev">pi</a></li>
+    <li>Antigravity</li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/acp.md">Any ACP agent</a></li>
+  </ul>
+  <p class="small">
+    Each harness declares what it can do, and anything it lacks shows up as a caveat in the TUI instead of failing silently.
+    <a href="https://github.com/Liquescent-Development/unharness#supported-agents">See what each one supports</a>.
+  </p>
+</section>
+
+<section class="quick">
+  <h2>Quick start</h2>
+<pre><code><span class="p">$</span> unharness doctor                          <span class="c"># what unharness found</span>
+<span class="p">$</span> unharness                                 <span class="c"># TUI with the default harness</span>
+<span class="p">$</span> unharness -H codex "Refactor the parser"  <span class="c"># pick a harness, start with a prompt</span>
+<span class="p">$</span> unharness --policy ask                    <span class="c"># ask | accept-edits | auto | bypass</span>
+<span class="p">$</span> unharness --resume                        <span class="c"># resume the latest conversation</span>
+<span class="p">$</span> unharness -p "Summarise src/"             <span class="c"># headless print mode</span></code></pre>
+  <p class="small">
+    The sandbox needs Linux 6.2 or newer; the macOS backend has not been run on a Mac yet.
+  </p>
+</section>
+
+<section class="docs">
+  <h2>Documentation</h2>
+  <ul class="doclist">
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/usage.md">Usage</a><span>commands, flags, resume, switching harnesses</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/tui.md">The TUI</a><span>keys, slash commands, attachments, rewind, subagents</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/permissions.md">Permissions</a><span>policies and allow rules</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/sandbox.md">Sandbox</a><span>what is confined and how</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/configuration.md">Configuration</a><span><code>config.toml</code> reference</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/mcp.md">MCP servers</a><span>servers defined once for every agent</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/acp.md">ACP agents</a><span>adding an Agent Client Protocol agent</span></li>
+    <li><a href="https://github.com/Liquescent-Development/unharness/blob/main/docs/skills.md">Rules and skills</a><span><code>AGENTS.md</code> and skills across agents</span></li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    <a href="https://github.com/Liquescent-Development/unharness">Source on GitHub</a> ·
+    <a href="https://github.com/Liquescent-Development/unharness/blob/main/LICENSE">AGPL-3.0-or-later</a> ·
+    Liquescent Development
+  </p>
+</footer>
+
+<script>
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function select(tab) {
+    for (const t of tabs) {
+      const on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    }
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => select(t));
+    t.addEventListener('keydown', e => {
+      const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      const next = tabs[(i + d + tabs.length) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+  for (const b of document.querySelectorAll('.copy')) {
+    b.addEventListener('click', async () => {
+      const text = b.previousElementSibling.textContent.replace(/^\$\s*/, '');
+      try {
+        await navigator.clipboard.writeText(text);
+        b.textContent = 'Copied';
+      } catch {
+        b.textContent = 'Press Ctrl+C';
+        getSelection().selectAllChildren(b.previousElementSibling);
+      }
+      setTimeout(() => (b.textContent = 'Copy'), 1600);
+    });
+  }
+</script>
+</body>
+</html>
