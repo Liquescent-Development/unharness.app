@@ -14,7 +14,7 @@
 <meta property="og:url" content="https://unharness.app/">
 <meta property="og:title" content="unharness">
 <meta property="og:description" content="One terminal UI for every coding agent you already have an account for.">
-<meta property="og:image" content="https://unharness.app/assets/demo.gif">
+<meta property="og:image" content="https://unharness.app/assets/demo-poster.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,11 +74,15 @@
 
 <section class="demo" aria-label="Demo">
   <div class="window">
-    <div class="bar"><span class="t">unharness — claude → codex</span></div>
-    <img src="assets/demo.gif" width="1280" height="760" loading="eager"
-         alt="Claude Code fixes a bug in fib.py behind a permission prompt, then /harness codex hands the conversation to Codex, which explains the fix from the shared transcript.">
+    <div class="bar"><span class="t">unharness — claude → vibe → codex</span></div>
+    <video width="1280" height="760" autoplay muted loop playsinline poster="assets/demo-poster.png"
+           aria-label="Claude Code fixes a bug in fib.py behind a permission prompt and the answer is saved as a rule, /harness vibe hands the conversation to Mistral Vibe, which writes a test over the Agent Client Protocol, and /harness codex hands it to Codex, which explains both from the shared transcript.">
+      <source src="assets/demo.webm" type="video/webm">
+      <source src="assets/demo.mp4" type="video/mp4">
+      <img src="assets/demo-poster.png" width="1280" height="760" alt="The unharness terminal UI mid-conversation.">
+    </video>
   </div>
-  <p class="caption"><span class="p">↳</span> Claude Code fixes a bug behind a permission prompt, then <code>/harness codex</code> and Codex picks up the same conversation.</p>
+  <p class="caption"><span class="p">↳</span> Claude Code fixes a bug behind a permission prompt and the answer becomes a rule, <code>/harness vibe</code> has Mistral Vibe write a test over ACP, and <code>/harness codex</code> has Codex explain both from the same conversation.</p>
 </section>
 
 <section class="features">
